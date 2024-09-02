@@ -1,0 +1,79 @@
+<p>home-page works!</p>
+
+<div>
+    <h1> Wipro Home Page</h1>
+    <p> welcome to the home page of Wipro </p>
+    <div style="color:red"> First design  </div>
+    <!-- interpolation -->
+    <h1> {{title}}</h1> 
+  
+    <form>
+      Enter your name : <input type="text" name="cname" [(ngModel)]="cname" /><br/>
+  
+      <p> Your name is : {{cname}} </p>
+      <input type="submit" value="Login" class="btn btn-primary"/>
+    </form>
+    <div>
+      <label for="flagset">Flag: 
+        <input id="flagset" type="checkbox" [(ngModel)]="flag">
+      </label>
+    </div>
+    <div *ngIf="flag">
+      {{flag}}
+     <ul>
+      <li> apple </li>
+      <li> banana </li>
+     </ul>
+    </div>
+    <br>
+    <a routerLink="/emplist" > Back to List</a>
+  <router-outlet></router-outlet>
+  <br/>
+    <div *ngIf="flag">
+  <label for="canSave">italic: 
+    <input id="canSave" type="checkbox" [(ngModel)]="canSave">
+  </label> |
+  <label for="isUnchanged">normal: 
+    <input id="isUnchanged" type="checkbox" [(ngModel)]="isUnchanged">
+  </label> |
+  <label for="isSpecial">xlarge: 
+    <input id="isSpecial" type="checkbox" [(ngModel)]="isSpecial">
+  </label>
+  
+  <button type="button" (click)="setCurrentStyles()">Refresh currentStyles</button>
+  
+  <br><br>
+  <div [ngStyle]="currentStyles">
+    This div should be {{ canSave ? "italic": "plain"}},
+                    {{ isUnchanged ? "normal weight" : "bold" }} and,
+                    {{ isSpecial ? "extra large": "normal size"}} after clicking "Refresh".
+  </div>
+  </div>
+  <hr><h2 id="ngClass">NgClass Binding</h2>
+  
+  <p>currentClasses is {{currentClasses|json}}</p>
+  <div [ngClass]="currentClasses">This div is initially saveable, unchanged, and special.</div>
+  <ul>
+    <li>
+      <label for="saveable">saveable</label>
+      <input type="checkbox" [(ngModel)]="canSave" id="saveable">
+    </li>
+    <li>
+      <label for="modified">modified:</label>
+      <input type="checkbox" [value]="!isUnchanged" (change)="isUnchanged=!isUnchanged" id="modified"></li>
+    <li>
+      <label for="special">special: <input type="checkbox" [(ngModel)]="isSpecial" id="special"></label>
+  </li>
+  </ul>
+  <button type="button" (click)="setCurrentClasses()">Refresh currentClasses</button>
+  
+  <div [ngClass]="currentClasses">
+    This div should be {{ canSave ? "": "not"}} saveable,
+                    {{ isUnchanged ? "unchanged" : "modified" }} and
+                    {{ isSpecial ? "": "not"}} special after clicking "Refresh".
+                  </div>
+  <br><br>
+  <hr>
+  
+  
+  </div>

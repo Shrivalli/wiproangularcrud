@@ -1,0 +1,40 @@
+Angular is a framework
+It helps to create SPA(Single Page Application)
+We divide the page into Components
+Every component will have 4 files: html,css,.ts(typescript), spec.ts(testing purpose)
+Typescript gets converted into a javascript and it is loaded in the browser- Transpilation
+app is the root component 
+app.module.ts --> program.cs - startup file
+
+Bindings in Angular
+1. one way binding - interpolation {{variablename}} --> from .ts to html
+2. two way binding  - ngModel  --> FormsModule in app.module.ts
+3. Property binding
+4. event binding - in html --> (click)="methodname"  ->defined in .ts
+
+To generate a component:
+ng g c compname
+Take the selector of the new component and place it in appcomponent.html
+
+Routing:
+In app.routing.module.ts
+1. const routes: Routes = [
+  {path:'emplist',component:EmpListComponent},
+  {path:'home',component:HomeComponent}
+];
+
+app.component.html
+2. <a class="nav-link" routerLink="home">Home</a>
+
+3. <router-outlet></router-outlet>
+
+Services:
+1. ng g s servicename
+
+When the data has to be passed across components, create a service
+Service is a class which has methods which can be invoked in all components
+Inject the service object in the component's constructor
+
+Angular Forms:
+1. Template Driven Form - [(ngModel)] - html
+2. Model Driven Form - Reactive Forms - .ts

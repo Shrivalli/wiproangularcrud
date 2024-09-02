@@ -1,0 +1,8 @@
+<div class="col-6 offset-3">
+    <div class="form-group">
+        <label for="d_id">Delete Id</label>
+        <input type="text" class="form-control" id="d_id" [(ngModel)]="custid">
+    </div>
+    <button type="button" class="btn btn-outline-dark text-center" (click)="DeleteCustomer()">Remove</button>
+    <div class="alert alert-info mt-2" *ngIf="d_msg">{{d_msg}}</div> 
+</div>

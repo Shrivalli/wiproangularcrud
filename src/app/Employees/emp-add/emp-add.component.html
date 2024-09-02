@@ -1,0 +1,42 @@
+<p>emp-add works!</p>
+<div>
+    <form #addform="ngForm" (submit)="register()"> 
+        <div>
+            Employee ID: 
+            <input type="number" name="eid" [(ngModel)]="e.eid" required/>
+        </div>
+        <div>
+            Employee Name: 
+            <input type="text" name="ename" [(ngModel)]="e.ename" required/>
+        </div>
+        <div>
+            Salary: 
+            <input type="number" name="sal" min="2000" max="5000" #sal="ngModel" [(ngModel)]="e.salary" />
+             <span *ngIf="sal.touched && sal.invalid" style="color:red">Salary should be between 2000 and 5000 </span> 
+        </div>
+        <div>
+            Date Of Joining: 
+            <input type="date" name="doj" [(ngModel)]="e.doj" required/>
+        </div>
+        <div>
+            Department: 
+            <select name="dept" [(ngModel)]="e.Deptid" >
+                <option *ngFor="let d of depts" [ngValue]="d">
+                    {{d.dname}}
+                </option>
+            </select>
+        </div>
+        <div>
+            Skills: 
+            <div *ngFor="let s of skills" >
+            <input  type="checkbox" name="skid"  [value]="s.SkillId" [(ngModel)]="s.SkillDesc"/> 
+            {{s.SkillName}}
+            </div>
+        </div>
+        
+        <div>
+            <input type="submit" value="Register" [disabled]="!addform.valid"/>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,30 @@
+<p>emp-list works!</p>
+<div *ngIf="flag">
+     <!-- {{emps|json}}  -->
+    <table class="table">
+      <thead>
+        <th> Eid </th>
+        <th> Ename </th>
+          <th> Salary</th>
+          <th> Date of Joining </th>
+          <th> Department ID </th>
+          <th colspan="2">SkillName</th>
+          <th colspan="2"> Skill Description</th>
+      </thead>
+      
+      <tr *ngFor="let i of emps">
+        <td> {{i.eid}}</td>
+        <td> {{i.ename}}</td>
+        <td>{{i.salary|currency}}</td>
+        <td>{{i.doj|date}}</td>
+        <td> {{i.Deptid.dname}}</td>
+        <td> {{i.</td>
+        <!-- <td *ngFor="let item of i.Skills">
+            {{item.SkillName}} 
+        </td>
+        <td *ngFor="let item of i.Skills">
+            {{item.SkillDesc}}
+        </td> -->
+      </tr>
+    </table>
+  </div>

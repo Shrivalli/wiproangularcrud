@@ -1,0 +1,45 @@
+<p>customerupdate works!</p>
+
+<div>
+
+    <form #updateform="ngForm" (submit)="Save()"> 
+        <div>
+            Customer ID: 
+            <input type="number" name="cid" [(ngModel)]="c.cid" required/>
+        </div>
+        <div>
+            Customer Name: 
+            <input type="text" name="cname" [(ngModel)]="c.cname" required/>
+        </div>
+        <div>
+            Salary: 
+            <input type="number" name="sal" min="2000" max="50000" #sal="ngModel" [(ngModel)]="c.sal" />
+             <span *ngIf="sal.touched && sal.invalid" style="color:red">Salary should be between 2000 and 50000 </span> 
+        </div>
+        <div>
+            Date Of Joining: 
+            <input type="date" name="doj" [(ngModel)]="c.doj" required/>
+        </div>
+        <div>
+            City: 
+            <input type="text" name="city" [(ngModel)]="c.city" required/>
+        </div>
+        <div>
+            Department: 
+            <select name="dept" [(ngModel)]="c.deptid" >
+                <option *ngFor="let d of depts" [ngValue]="d.did">
+                    {{d.dname}}
+                </option>
+            </select>
+        </div>
+       
+        <div>
+            <input type="submit" value="Save" [disabled]="!updateform.valid"/>
+        </div>
+
+        <div *ngIf="flag">
+            {{msg}}
+        </div>
+
+    </form>
+</div>
