@@ -18,10 +18,10 @@ custid:number;
   }
 
   DeleteCustomer()
-  {
-   this.custservice.getAllUsers().subscribe(data=>{
-    this.customers=data;})
-    this.c=this.customers.find(x=>x.cid==this.custid);
+   {
+  //  this.custservice.getAllUsers().subscribe(data=>{
+  //   this.customers=data;})
+  //   this.c=this.customers.find(x=>x.cid==this.custid);
     this.custservice.deleteUser(this.custid).subscribe(data=>{
       console.log(this.c.cname+" 's Record Deleted Successfully");
       this.d_msg="Record Deleted";

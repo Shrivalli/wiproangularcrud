@@ -12,6 +12,7 @@ import { CustomerlistComponent } from './Customers/customerlist/customerlist.com
 import { CustomeraddComponent } from './Customers/customeradd/customeradd.component';
 import { CustomerdeleteComponent } from './Customers/customerdelete/customerdelete.component';
 import { CustomerupdateComponent } from './Customers/customerupdate/customerupdate.component';
+import { DeptPipe, SalPipe } from './Customers/customerdeptpipe';
 
 
 @NgModule({
@@ -23,7 +24,9 @@ import { CustomerupdateComponent } from './Customers/customerupdate/customerupda
     CustomerlistComponent,
     CustomeraddComponent,
     CustomerdeleteComponent,
-    CustomerupdateComponent
+    CustomerupdateComponent,
+    SalPipe,
+    DeptPipe
   ],
   imports: [
     BrowserModule,

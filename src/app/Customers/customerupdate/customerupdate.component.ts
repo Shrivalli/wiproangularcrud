@@ -21,11 +21,13 @@ flag:boolean;
   }
 
   ngOnInit(): void {
-    
-    console.log(this.custid);
+    //fetch the current record of that id
+     console.log(this.custid);
      this.custserivce.getcustomerbyid(this.custid).subscribe(data=>{
       this.c=data;
      });
+
+     //populate departments
     this.custserivce.getallDepts().subscribe(data=>
     {
       this.depts=data;

@@ -9,7 +9,7 @@ import { CustService } from 'src/Services/cust.service';
   styleUrls: ['./customeradd.component.css']
 })
 export class CustomeraddComponent implements OnInit {
-  c:Customer={cid:0,cname:"",sal:0,doj:new Date(""),city:"",deptid:{did:0,dname:"",city:""}};
+  c:Customer={cid:0,cname:"",sal:0,doj:new Date(""),city:"",deptid:0};
   depts:Department[];
   msg="";
   constructor(private custservice:CustService) { }

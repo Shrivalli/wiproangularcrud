@@ -1,6 +1,17 @@
 <p>emp-list works!</p>
+
+
+Enter the max Salary: <input type="number" [(ngModel)]="saltext"/><br/><br/>
+Enter the Department filter: <input type="number" [(ngModel)]="did"/><br/><br/>
+
+<input type="button" (click)="fetchdeptdetails(did)" value="Fetch Department Details"/>
+<div *ngIf="f"> 
+ DepartmentID:  {{d.did}}
+ Department Name:{{d.dname}}
+ City: {{d.city}}
+</div>
 <div *ngIf="flag">
-     <!-- {{emps|json}}  -->
+      
     <table class="table">
       <thead>
         <th> Cid </th>
@@ -10,15 +21,17 @@
           <th> City </th>
           <th> Department ID </th>
           
+          
       </thead>
       
-      <tr *ngFor="let i of customers">
+      <tr *ngFor="let i of customers|SalPipe:saltext|DeptPipe:did">
         <td> {{i.cid}}</td>
         <td> {{i.cname}}</td>
         <td>{{i.sal|currency}}</td>
         <td>{{i.doj|date}}</td>
         <td>{{i.city}}</td>
         <td> {{i.deptid}}</td>
+        
         <td> <a [routerLink]="['/customerupdate',i.cid ]"> Edit </a></td>
         
       </tr>

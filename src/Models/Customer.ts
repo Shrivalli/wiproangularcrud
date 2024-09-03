@@ -7,5 +7,6 @@ export interface Customer
     sal:number;
     doj:Date;
     city:string;
-    deptid:Department;
+    deptid:number;
+    
 }

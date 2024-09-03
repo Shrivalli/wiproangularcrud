@@ -38,3 +38,11 @@ Inject the service object in the component's constructor
 Angular Forms:
 1. Template Driven Form - [(ngModel)] - html
 2. Model Driven Form - Reactive Forms - .ts
+
+Custom Pipes:(filters)
+
+1. create a class which implements PipeTransform Interface which has one method called Transform
+2. Define  the logic for Transform which takes 2 parameters --> 1. array  2. parameter based on which filter has to be done
+3. Decorate the class with @Pipe annotation
+4. Inject the pipes in app.module.ts
+5. in *ngFor = let a of customers|salpipe:saltext|deptpipe:did
